@@ -1,17 +1,11 @@
 const notebook = new Notebook()
+const creationPage = new CreationPage(notebook)
 
-const button = document.getElementById('create-button')
-button.addEventListener("click", function() {
-  const area = document.getElementById('note-text')
-  const text = area.value
-  area.value = ''
+const pageDiv = document.getElementById('page')
 
-  notebook.addNote(text)
-  displayNotebook()
-})
-
-function displayNotebook() {
-    const noteDiv = document.getElementById('notes')
-    noteDiv.innerHTML = ''
-    noteDiv.appendChild(notebook.elementForDisplay())
+function displayPage(div, page) {
+    div.innerHTML = ''
+    div.appendChild(page.elementForDisplay())
 }
+
+displayPage(pageDiv, creationPage)
