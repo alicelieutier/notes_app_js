@@ -1,5 +1,6 @@
 class Note {
     constructor(text, id, rerender) {
+        this.text = text
         this.id = id
         this.processedText(text, (processed) => {
             this.text = processed
@@ -22,7 +23,6 @@ class Note {
         })
         .catch((error) => {
             console.error('Error:', error);
-            callback(text)
         });
     }
 
