@@ -3,12 +3,22 @@ class Notebook {
         this.notes = {}
         this.idCounter = 0
         this.rerender = rerender
+
+        const storedNotes = localStorage.getItem('notebook')
+        if (storedNotes != null) {
+            const notes = JSON.parse(storedNotes)
+            Object.entries(notes).forEach(([id, text]) => {
+                this.addNote(text, parseInt(id))
+            });
+        }
     }
 
-    addNote(text) {
-        const note = new Note(text, this.idCounter, this.rerender)
-        this.notes[this.idCounter] = note
-        this.idCounter ++
+    addNote(text, id = null) {
+        const noteId = id === null ? this.idCounter : id
+        const note = new Note(text, noteId, this.rerender)
+        this.notes[noteId] = note
+        this.idCounter = noteId + 1
+        localStorage.setItem('notebook', JSON.stringify(this.notes))
     }
 
     getNoteById(id) {

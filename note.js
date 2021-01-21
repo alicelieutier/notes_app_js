@@ -8,6 +8,10 @@ class Note {
         })
     }
 
+    toJSON() {
+        return this.text
+    }
+
     processedText(text, callback) {
         fetch('https://makers-emojify.herokuapp.com/', {
             method: 'POST',
@@ -18,7 +22,6 @@ class Note {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
             callback(data.emojified_text)
         })
         .catch((error) => {
