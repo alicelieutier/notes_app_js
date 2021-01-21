@@ -16,7 +16,6 @@ class CreationPage {
         element.appendChild(createButton)
         element.appendChild(notesDiv)
 
-
         function displayNotebook() {
             notesDiv.innerHTML = ''
             notesDiv.appendChild(notebook.elementForDisplay())
@@ -29,6 +28,7 @@ class CreationPage {
             displayNotebook()
         })
 
+        displayNotebook()
         return element
     }
 }
