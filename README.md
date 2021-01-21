@@ -7,3 +7,5 @@ A simple note app, created as an example for developers at Makers.
 This app uses the [Emojify API](https://makers-emojify.herokuapp.com/) to transform [emoji shortcodes](webfx.com/tools/emoji-cheat-sheet/) into emojis.
 
 Deployed at http://emoji_notes_makers.surge.sh/
+
+Run locally using a static server, like [http-server](https://www.npmjs.com/package/http-server).
